@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append Group of Input to Form</title>
+</head>
+<body>
+    <form id="myForm">
+        <!-- Initial form elements -->
+        <input type="text" name="field1" placeholder="Field 1">
+        <input type="text" name="field2" placeholder="Field 2">
+    </form>
+    
+    <!-- Group of input elements to append -->
+    <div id="inputGroup" style="display:none">
+        <input type="text" name="groupField1" placeholder="Group Field 1">
+        <input type="text" name="groupField2" placeholder="Group Field 2">
+        <input type="text" name="groupField2" placeholder="Group Field 2">
+    </div>
+
+    <button id="addGroupButton">Append Group</button>
+
+    <script>
+        // JavaScript to add a group of input elements to the form
+        document.getElementById('addGroupButton').addEventListener('click', function() {
+            var form = document.getElementById('myForm');
+            var inputGroup = document.getElementById('inputGroup');
+            
+            // Clone the input group
+            var clonedInputGroup = inputGroup.cloneNode(true);
+            
+            // Append the cloned input group to the form
+            form.appendChild(clonedInputGroup);
+             // Toggle the visibility of the input group
+             if (inputGroup.style.display === 'none') {
+                inputGroup.style.display = 'block';
+            } else {
+                inputGroup.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
